@@ -1,43 +1,40 @@
-// Add event lister
+// Mouse Events
 
-// document.querySelector('.clear-tasks').addEventListener('click', function (e) {
-//   console.log('Hello World!');
-
-//   // e.preventDefault();
-// });
+const clearBtn = document.querySelector('.clear-tasks');
+const card = document.querySelector('.card');
+const heading = document.querySelector('h5');
 
 
-// Another event listener
-document.querySelector('.clear-tasks').addEventListener('click', onClick);
+// Click
+// clearBtn.addEventListener('click', runEvent);
 
-function onClick(e) {
+// Double Click event
+clearBtn.addEventListener('dblclick', runEvent);
 
-  let val;
-  val = e;
-  // Event target element
-  val = e.target;
-  val = e.target.id;
-  val = e.target.className;
-  val = e.target.classList
+// Mouse Down
+clearBtn.addEventListener('mousedown', runEvent);
 
-  // Event type
-  val = e.type;
+// Mouse Enter - active on parent element
+clearBtn.addEventListener('mouseenter', runEvent);
 
-  // Timestamp
-  val = e.timeStamp;
+// Mouse Leave - active on parent element
+clearBtn.addEventListener('mouseleave', runEvent);
 
+// Mouseover - active on element
+clearBtn.addEventListener('mouseover', runEvent);
 
-  // Get coordinates of event relative to the window
+// Mouseout - active on element
+clearBtn.addEventListener('mouseout', runEvent);
 
-  val = e.clientY;
-  val = e.clientX;
-
-  // Get coordinates relative to element
-  val = e.offsetY;
-  val = e.offsetX;
+// Mouse move - active anywhere inside element
+card.addEventListener('mousemove', runEvent);
 
 
-  e.target.innerText = 'Click Now To Fast Forward!';
-  console.log(val);
+// Event Handler
+function runEvent(e) {
+  console.log(`event Type: ${e.type}`);
+
+  heading.textContent = `MouseX: ${e.offsetX} MouseY: ${e.offsetY}`;
+
+  document.body.style.backgroundColor = `rgb(${e.offsetX},${e.offsetY}, 40)`
 }
-
